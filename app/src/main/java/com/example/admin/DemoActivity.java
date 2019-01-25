@@ -82,14 +82,14 @@ public class DemoActivity extends UnityPlayerActivity {
                         int[] location = new int[2];
                         popupWindow.setBackgroundDrawable(new BitmapDrawable());//注意这里如果不设置，下面的setOutsideTouchable(true);允许点击外部消失会失效
                         mUnityPlayer.getLocationOnScreen(location);
-                        popupWindow.showAtLocation(mUnityPlayer, Gravity.NO_GRAVITY, 0, 50);
+                        popupWindow.showAtLocation(mUnityPlayer, Gravity.NO_GRAVITY, 20, 50);
                     }
                 }
             });
         }catch (Exception e){
             e.printStackTrace();
         }
-        showToast("哈哈哈");
+        sendServiceUrl();
     }
     @Override
     protected void onDestroy() {
@@ -98,7 +98,7 @@ public class DemoActivity extends UnityPlayerActivity {
             popupWindow.dismiss();
         }
     }
-    public void showToast(final String text) {
+    public void sendServiceUrl() {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             public void run() {
                 String url = getIntent().getStringExtra("url");
